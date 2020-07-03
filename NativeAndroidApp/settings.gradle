@@ -1,0 +1,5 @@
+include ':app'
+include ':unityLibrary'
+project(':unityLibrary').projectDir=new File('..\\UnityProject\\androidBuild\\unityLibrary')
+
+rootProject.name='NativeAndroidApp'
