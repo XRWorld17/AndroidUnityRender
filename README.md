@@ -16,10 +16,10 @@ Unity官方文档 [Unity as a Library integration example to iOS and Android](ht
 #### Step.1
 
 - Android Studio 新建项目：
-  ![](README.assets\1536438-20200511193628285-297005542.png)
-- Unity 新建项目：![](README.assets\1536438-20200511193939816-1606248075.png)
+  ![](./README.assets/1536438-20200511193628285-297005542.png)
+- Unity 新建项目：![](./README.assets/1536438-20200511193939816-1606248075.png)
 - 最终工程结构如下：
-- ![](README.assets\1536438-20200511193911156-612425801.png)
+- ![](./README.assets/1536438-20200511193911156-612425801.png)
 
 #### Step.2
 
@@ -27,18 +27,18 @@ Unity官方文档 [Unity as a Library integration example to iOS and Android](ht
 
 - 选择 File -> Build Settings -> Switch Android Platform -> Export Project 
 
-  ![](README.assets\1536438-20200511195140197-1426097963.png)
+  ![](./README.assets/1536438-20200511195140197-1426097963.png)
 
 
-  ![](README.assets\1536438-20200511195320262-57340212.png)
+  ![](./README.assets/1536438-20200511195320262-57340212.png)
 
 - 这时候选择Export可能会提示JDK路径配置出错，没关系我们到 Preference -> Externl Tools 设置路径 
-  ![](README.assets\1536438-20200511195637325-311104231.png)
+  ![](./README.assets/1536438-20200511195637325-311104231.png)
 
-![](README.assets\1536438-20200511195726879-2115298771.png)
+![](./README.assets/1536438-20200511195726879-2115298771.png)
 
 - 可以点击Export了，路径选择可以自由选择，这里建议按照官方来
-  ![](README.assets\1536438-20200511200219564-1834859668.png)
+  ![](./README.assets/1536438-20200511200219564-1834859668.png)
 
 #### Step.3
 
