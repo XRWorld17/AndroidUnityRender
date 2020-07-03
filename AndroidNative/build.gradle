@@ -16,12 +16,6 @@ allprojects {
     repositories {
         google()
         jcenter()
-
-        // Add Code
-        flatDir {
-            dirs "${project(':unityLibrary').projectDir}/libs"
-        }
-        // End
     }
 }
 
