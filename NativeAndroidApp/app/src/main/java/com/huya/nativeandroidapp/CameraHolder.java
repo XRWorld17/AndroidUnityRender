@@ -155,13 +155,13 @@ public class CameraHolder implements SurfaceTexture.OnFrameAvailableListener {
         //            GLES20.glClearColor(1,0,0,1);
         //            GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
                 GLES20.glFinish();
-                int mImageWidth = size.x;
-                int mImageHeight = size.y;
-                Bitmap dest = Bitmap.createBitmap(mImageWidth, mImageHeight, Bitmap.Config.ARGB_8888);
-                final ByteBuffer buffer = ByteBuffer.allocateDirect(mImageWidth * mImageHeight * 4);
-                GLES20.glReadPixels(0, 0, mImageWidth, mImageHeight, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, buffer);
-                dest.copyPixelsFromBuffer(buffer);
-                dest = null;
+//                int mImageWidth = size.x;
+//                int mImageHeight = size.y;
+//                Bitmap dest = Bitmap.createBitmap(mImageWidth, mImageHeight, Bitmap.Config.ARGB_8888);
+//                final ByteBuffer buffer = ByteBuffer.allocateDirect(mImageWidth * mImageHeight * 4);
+//                GLES20.glReadPixels(0, 0, mImageWidth, mImageHeight, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, buffer);
+//                dest.copyPixelsFromBuffer(buffer);
+//                dest = null;
                 //UnityPlayer.UnitySendMessage("Plane","callUpdate","str");
                 mFBOCopy.FBOEnd();
                 

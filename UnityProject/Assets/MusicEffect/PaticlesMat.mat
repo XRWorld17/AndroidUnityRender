@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: PaticlesMat
-  m_Shader: {fileID: 4800000, guid: 183fcb8a7ce84a04e9c4a2fdb42e7316, type: 3}
+  m_Shader: {fileID: 4800000, guid: c6879e2df467d4d4bbe63e2c52515fe8, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 8337329d12efbd54caf2e154ee94d2f5, type: 3}
+        m_Texture: {fileID: 2800000, guid: 0eac685d2608a474785f6cd5c8a99e0d, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:
