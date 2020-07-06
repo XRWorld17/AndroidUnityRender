@@ -1,6 +1,6 @@
 ﻿// 音符跳动
 
-Shader "XDEDZL/Note Bounce"
+Shader "Note Bounce"
 {
 
 	Properties{
@@ -24,7 +24,7 @@ Shader "XDEDZL/Note Bounce"
 
 			fixed4 _Color;
 			sampler2D _MainTex;
-			// 纹理名_ST声明某个纹理的属性，.xy是缩放.zw是偏移
+			// 纹理名_ST声明某个纹理的属性，.xy缩放.zw偏移
 			float4 _MainTex_ST;
 			fixed4 _Specular;
 			float _Gloss;

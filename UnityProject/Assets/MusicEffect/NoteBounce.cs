@@ -1,45 +1,44 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
-
+﻿using UnityEngine;
 
 public class NoteBounce : MonoBehaviour
 {
+    public float bootIntensity = 0.5f;
     public GameObject fireworksObj;
     private Material fireworksMat;
-    private new AudioSource audioSource;
     private Material material;
+    private new AudioSource audioSource;
 
     private int m_NumSamples = 256;
     private float[] m_Samples;
     private float sum, rms;
-    void Start()
+
+    private void Start()
     {
         audioSource = GetComponent<AudioSource>();
         BeginListener(0);
         //audioSource.clip = Microphone.Start(null, true, 10, 44100);
-        material = GetComponent<MeshRenderer>().material;
         fireworksMat = fireworksObj.GetComponent<MeshRenderer>().material;
+        material = GetComponent<MeshRenderer>().material;
         m_Samples = new float[m_NumSamples];
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         audioSource.GetOutputData(m_Samples, 0);
         sum = m_Samples[m_NumSamples - 1] * m_Samples[m_NumSamples - 1];
         rms = Mathf.Sqrt(sum/* / m_NumSamples*/);
         float intensity = rms;
         Debug.Log(intensity);
-        if (intensity > 0.2f)
+        if (intensity > bootIntensity)
         {
-            fireworksMat.SetFloat("_ContinueTime", 2);
+            material.SetFloat("_Intensity", intensity);
         }
         else
         {
-            fireworksMat.SetFloat("_ContinueTime", 0);
+            material.SetFloat("_Intensity", 0);
         }
-        material.SetFloat("_Intensity", intensity);
+        fireworksMat.SetFloat("_ContinueTime", 2);
     }
 
     public void BeginListener(int index)
