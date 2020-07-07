@@ -8,6 +8,8 @@ public class NoteBounce : MonoBehaviour
     private Material material;
     private new AudioSource audioSource;
 
+    public ParticleSystem m_ParticleSystem;
+
     private int m_NumSamples = 256;
     private float[] m_Samples;
     private float sum, rms;
@@ -25,6 +27,7 @@ public class NoteBounce : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        var emission = m_ParticleSystem.emission;
         audioSource.GetOutputData(m_Samples, 0);
         sum = m_Samples[m_NumSamples - 1] * m_Samples[m_NumSamples - 1];
         rms = Mathf.Sqrt(sum/* / m_NumSamples*/);
@@ -33,12 +36,17 @@ public class NoteBounce : MonoBehaviour
         if (intensity > bootIntensity)
         {
             material.SetFloat("_Intensity", intensity);
+            emission.rateOverTime = 10f * (1 + intensity * 1000);
         }
         else
         {
             material.SetFloat("_Intensity", 0);
+            emission.rateOverTime = 10f;
         }
         fireworksMat.SetFloat("_ContinueTime", 2);
+
+        //m_ParticleSystem.Emit(100);
+        //m_ParticleSystem.emission.rateOverTime.curve = 100;
     }
 
     public void BeginListener(int index)
