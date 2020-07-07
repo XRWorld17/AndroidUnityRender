@@ -1,12 +1,12 @@
 ﻿using UnityEngine;
 
-public class NoteBounce : MonoBehaviour
+public class MicHolder : MonoBehaviour
 {
     public float bootIntensity = 0.02f;
-    public GameObject fireworksObj;
-    private Material fireworksMat;
     private Material material;
     private new AudioSource audioSource;
+
+    public ParticleSystem m_ParticleSystem;
 
     private int m_NumSamples = 256;
     private float[] m_Samples;
@@ -15,16 +15,15 @@ public class NoteBounce : MonoBehaviour
     private void Start()
     {
         audioSource = GetComponent<AudioSource>();
-        //audioSource.clip = Microphone.Start(null, true, 10, 44100);
         BeginListener(0);
-        fireworksMat = fireworksObj.GetComponent<MeshRenderer>().material;
-        material = GetComponent<MeshRenderer>().material;
+        //audioSource.clip = Microphone.Start(null, true, 10, 44100);
         m_Samples = new float[m_NumSamples];
     }
 
     // Update is called once per frame
     private void Update()
     {
+        var emission = m_ParticleSystem.emission;
         audioSource.GetOutputData(m_Samples, 0);
         sum = m_Samples[m_NumSamples - 1] * m_Samples[m_NumSamples - 1];
         rms = Mathf.Sqrt(sum/* / m_NumSamples*/);
@@ -32,13 +31,12 @@ public class NoteBounce : MonoBehaviour
         Debug.Log(intensity);
         if (intensity > bootIntensity)
         {
-            material.SetFloat("_Intensity", intensity);
+            emission.rateOverTime = 10f * (1 + intensity * 1000);
         }
         else
         {
-            material.SetFloat("_Intensity", 0);
+            emission.rateOverTime = 10f;
         }
-        fireworksMat.SetFloat("_ContinueTime", 2);
     }
 
     public void BeginListener(int index)
