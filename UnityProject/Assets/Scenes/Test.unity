@@ -207,7 +207,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_ParticleSystem
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1715352253}
     - target: {fileID: 6211137345931529357, guid: 16ae505a4e8900649a6e2b7e0949bf2b,
         type: 3}
       propertyPath: m_audioClip
