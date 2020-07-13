@@ -131,56 +131,56 @@ public class CameraHolder implements SurfaceTexture.OnFrameAvailableListener {
         }
     }
 
-    public boolean copyTexture() {
-        Log.d(TAG, "copyTexture: ");
-        synchronized (this) {
-            if(mIsCopyed){
-                mIsCopyed = false;
-                UnityPlayer.UnitySendMessage("Plane","setIsLock","0");
-                Point size = new Point();
-                if (Build.VERSION.SDK_INT >= 17) {
-                    UnityPlayer.currentActivity.getWindowManager().getDefaultDisplay().getRealSize(size);
-                } else {
-                    UnityPlayer.currentActivity.getWindowManager().getDefaultDisplay().getSize(size);
-                }
-                if (mUnityTextureCopy == null) {
-                    Log.d(TAG, "width = " + size.x + ", height = " + size.y);
-                    // 根据宽高创建GL_TEXTURE_2D纹理
-                    mUnityTextureCopy = new GLTexture2D(UnityPlayer.currentActivity, size.x, size.y);
-                    mFBOCopy = new FBO(mUnityTextureCopy);
-                }
-                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,mUnityTextureCopy.mTextureID);
-                GLES20.glCopyTexSubImage2D(GLES20.GL_TEXTURE_2D, 0,0,0,0,0,size.x, size.y);
-                mFBOCopy.FBOBegin();
-        //            GLES20.glClearColor(1,0,0,1);
-        //            GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-                GLES20.glFinish();
-//                int mImageWidth = size.x;
-//                int mImageHeight = size.y;
-//                Bitmap dest = Bitmap.createBitmap(mImageWidth, mImageHeight, Bitmap.Config.ARGB_8888);
-//                final ByteBuffer buffer = ByteBuffer.allocateDirect(mImageWidth * mImageHeight * 4);
-//                GLES20.glReadPixels(0, 0, mImageWidth, mImageHeight, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, buffer);
-//                dest.copyPixelsFromBuffer(buffer);
-//                dest = null;
-                //UnityPlayer.UnitySendMessage("Plane","callUpdate","str");
-                mFBOCopy.FBOEnd();
-                
-//                //测试同步
-//                try {
-//                    Thread.sleep(1000);//休眠3秒
-//                } catch (InterruptedException e) {
-//                    e.printStackTrace();
+//    public boolean copyTexture() {
+//        Log.d(TAG, "copyTexture: ");
+//        synchronized (this) {
+//            if(mIsCopyed){
+//                mIsCopyed = false;
+//                UnityPlayer.UnitySendMessage("Plane","setIsLock","0");
+//                Point size = new Point();
+//                if (Build.VERSION.SDK_INT >= 17) {
+//                    UnityPlayer.currentActivity.getWindowManager().getDefaultDisplay().getRealSize(size);
+//                } else {
+//                    UnityPlayer.currentActivity.getWindowManager().getDefaultDisplay().getSize(size);
 //                }
-//                Log.d(TAG, "run: Waiting 1 s");
-
-                UnityPlayer.UnitySendMessage("Plane","setIsLock","1");
-                mIsCopyed = true;
-                return mIsCopyed;
-            }
-            else
-                return false;
-        }
-    }
+//                if (mUnityTextureCopy == null) {
+//                    Log.d(TAG, "width = " + size.x + ", height = " + size.y);
+//                    // 根据宽高创建GL_TEXTURE_2D纹理
+//                    mUnityTextureCopy = new GLTexture2D(UnityPlayer.currentActivity, size.x, size.y);
+//                    mFBOCopy = new FBO(mUnityTextureCopy);
+//                }
+//                GLES20.glBindTexture(GLES20.GL_TEXTURE_2D,mUnityTextureCopy.mTextureID);
+//                GLES20.glCopyTexSubImage2D(GLES20.GL_TEXTURE_2D, 0,0,0,0,0,size.x, size.y);
+//                mFBOCopy.FBOBegin();
+//        //            GLES20.glClearColor(1,0,0,1);
+//        //            GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+//                GLES20.glFinish();
+////                int mImageWidth = size.x;
+////                int mImageHeight = size.y;
+////                Bitmap dest = Bitmap.createBitmap(mImageWidth, mImageHeight, Bitmap.Config.ARGB_8888);
+////                final ByteBuffer buffer = ByteBuffer.allocateDirect(mImageWidth * mImageHeight * 4);
+////                GLES20.glReadPixels(0, 0, mImageWidth, mImageHeight, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, buffer);
+////                dest.copyPixelsFromBuffer(buffer);
+////                dest = null;
+//                //UnityPlayer.UnitySendMessage("Plane","callUpdate","str");
+//                mFBOCopy.FBOEnd();
+//
+////                //测试同步
+////                try {
+////                    Thread.sleep(1000);//休眠3秒
+////                } catch (InterruptedException e) {
+////                    e.printStackTrace();
+////                }
+////                Log.d(TAG, "run: Waiting 1 s");
+//
+//                UnityPlayer.UnitySendMessage("Plane","setIsLock","1");
+//                mIsCopyed = true;
+//                return mIsCopyed;
+//            }
+//            else
+//                return false;
+//        }
+//    }
 
     @Override
     public void onFrameAvailable(SurfaceTexture surfaceTexture) {
