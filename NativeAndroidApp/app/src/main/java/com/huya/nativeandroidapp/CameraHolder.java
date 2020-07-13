@@ -105,27 +105,27 @@ public class CameraHolder implements SurfaceTexture.OnFrameAvailableListener {
             GLES20.glViewport(0, 0, size.x, size.y);
 
 
-//            // 创建读出的GL_TEXTURE_2D纹理
-//            if (mUnityTextureCopy == null) {
-//                Log.d(TAG, "width = " + width + ", height = " + height);
-//                mUnityTextureCopy = new GLTexture2D(UnityPlayer.currentActivity, size.x, size.y);
-//                mFBOCopy = new FBO(mUnityTextureCopy);
-//            }
-//            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mUnityTextureCopy.mTextureID);
-//            GLES20.glCopyTexSubImage2D(GLES20.GL_TEXTURE_2D, 0,0,0,0,0,size.x, size.y);
-//            mFBOCopy.FBOBegin();
-////            // test是否是当前FBO
-////            GLES20.glClearColor(1,0,0,1);
-////            GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
-////            GLES20.glFinish();
-//            int mImageWidth = size.x;
-//            int mImageHeight = size.y;
-//            Bitmap dest = Bitmap.createBitmap(mImageWidth, mImageHeight, Bitmap.Config.ARGB_8888);
-//            final ByteBuffer buffer = ByteBuffer.allocateDirect(mImageWidth * mImageHeight * 4);
-//            GLES20.glReadPixels(0, 0, mImageWidth, mImageHeight, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, buffer);
-//            dest.copyPixelsFromBuffer(buffer);
-//            dest = null;
-//            mFBOCopy.FBOEnd();
+            // 创建读出的GL_TEXTURE_2D纹理
+            if (mUnityTextureCopy == null) {
+                Log.d(TAG, "width = " + width + ", height = " + height);
+                mUnityTextureCopy = new GLTexture2D(UnityPlayer.currentActivity, size.x, size.y);
+                mFBOCopy = new FBO(mUnityTextureCopy);
+            }
+            GLES20.glBindTexture(GLES20.GL_TEXTURE_2D, mUnityTextureCopy.mTextureID);
+            GLES20.glCopyTexSubImage2D(GLES20.GL_TEXTURE_2D, 0,0,0,0,0,size.x, size.y);
+            mFBOCopy.FBOBegin();
+//            // test是否是当前FBO
+//            GLES20.glClearColor(1,0,0,1);
+//            GLES20.glClear(GLES20.GL_COLOR_BUFFER_BIT);
+//            GLES20.glFinish();
+            int mImageWidth = size.x;
+            int mImageHeight = size.y;
+            Bitmap dest = Bitmap.createBitmap(mImageWidth, mImageHeight, Bitmap.Config.ARGB_8888);
+            final ByteBuffer buffer = ByteBuffer.allocateDirect(mImageWidth * mImageHeight * 4);
+            GLES20.glReadPixels(0, 0, mImageWidth, mImageHeight, GLES20.GL_RGBA, GLES20.GL_UNSIGNED_BYTE, buffer);
+            dest.copyPixelsFromBuffer(buffer);
+            dest = null;
+            mFBOCopy.FBOEnd();
 
             return mUnityTexture.getTextureID();
         }

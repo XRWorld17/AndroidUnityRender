@@ -138,7 +138,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &283754863
 Transform:
   m_ObjectHideFlags: 0
@@ -14848,7 +14848,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: ad5c3a86df810e142bd74c87a8313ce3, type: 2}
+  - {fileID: 2100000, guid: b9609ce954bf05640b11945820192b02, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14904,8 +14904,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   texture: {fileID: 0}
-  CyberpunkMat: {fileID: 2100000, guid: b9609ce954bf05640b11945820192b02, type: 2}
-  MosaicMat: {fileID: 2100000, guid: 335f5f34e77bcd54fb726faaeb16443b, type: 2}
   isLock: 0
 --- !u!1 &2099591820
 GameObject:
@@ -15014,7 +15012,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &2104030365
 Transform:
   m_ObjectHideFlags: 0

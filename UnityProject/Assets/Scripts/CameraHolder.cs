@@ -10,8 +10,8 @@ public class CameraHolder : MonoBehaviour
     public Texture2D texture;
     int textureId;
     
-    public Material CyberpunkMat;
-    public Material MosaicMat;
+    //public Material CyberpunkMat;
+    //public Material MosaicMat;
 
     public bool isLock;
 
@@ -127,21 +127,21 @@ public class CameraHolder : MonoBehaviour
             Debug.Log(isLock);
         }
     }
-    void SwitchShader(string str)
-    {
-        //Debug.Log("SwitchShader Called");
-        //Debug.Log("currMat      = " + GetComponent<MeshRenderer>().material.name);
-        //Debug.Log("CyberpunkMat = " + CyberpunkMat.name + "(Instance)");
-        //Debug.Log("MosaicMat    = " + MosaicMat.name + "(Instance)");
-        if (GetComponent<MeshRenderer>().material.name == (CyberpunkMat.name + " (Instance)"))
-        {
-            //Debug.Log("Switch to MosaicMat");
-            GetComponent<MeshRenderer>().material = MosaicMat;        
-        }
-        else
-        {
-            //Debug.Log("Switch to CyberpunkMat");
-            GetComponent<MeshRenderer>().material = CyberpunkMat;
-        }
-    }
+    //void SwitchShader(string str)
+    //{
+    //    //Debug.Log("SwitchShader Called");
+    //    //Debug.Log("currMat      = " + GetComponent<MeshRenderer>().material.name);
+    //    //Debug.Log("CyberpunkMat = " + CyberpunkMat.name + "(Instance)");
+    //    //Debug.Log("MosaicMat    = " + MosaicMat.name + "(Instance)");
+    //    if (GetComponent<MeshRenderer>().material.name == (CyberpunkMat.name + " (Instance)"))
+    //    {
+    //        //Debug.Log("Switch to MosaicMat");
+    //        GetComponent<MeshRenderer>().material = MosaicMat;        
+    //    }
+    //    else
+    //    {
+    //        //Debug.Log("Switch to CyberpunkMat");
+    //        GetComponent<MeshRenderer>().material = CyberpunkMat;
+    //    }
+    //}
 }
