@@ -20,7 +20,7 @@ import com.unity3d.player.UnityPlayer;
 public class MainActivity extends AppCompatActivity {
 
     static {
-        System.loadLibrary("cpplib-lib");
+        System.loadLibrary("cppso");
     }
 
     boolean isUnityLoaded = false;

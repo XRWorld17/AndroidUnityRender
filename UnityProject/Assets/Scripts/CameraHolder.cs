@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 using System;
 using System.Runtime.CompilerServices;
+using System.Runtime.InteropServices;
 
 public class CameraHolder : MonoBehaviour
 {
@@ -14,6 +15,12 @@ public class CameraHolder : MonoBehaviour
     //public Material MosaicMat;
 
     public bool isLock;
+
+    int i = 0;
+
+    //引用C 、C++中的方法
+    [DllImport("cppso")]
+    private static extern int addInt(int a, int b);
 
     #region nativeFunction
     AndroidJavaObject nativeCameraHolder;
@@ -73,6 +80,9 @@ public class CameraHolder : MonoBehaviour
     // Use this for initialization
     void Start()
     {
+        //调用方法中相加函数
+        i = addInt(1, 2);
+
         isLock = true;
         _openCamera();
     }
@@ -85,6 +95,7 @@ public class CameraHolder : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log("use c = " + i);
         Debug.Log("isLock = "+ isLock);
         if (_isFrameUpdated())
         {
