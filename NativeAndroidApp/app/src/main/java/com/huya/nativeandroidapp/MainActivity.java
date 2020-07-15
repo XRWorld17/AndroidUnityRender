@@ -9,6 +9,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import android.view.ViewGroup.LayoutParams;
@@ -18,7 +19,14 @@ import com.unity3d.player.UnityPlayer;
 
 public class MainActivity extends AppCompatActivity {
 
+    static {
+        System.loadLibrary("cpplib-lib");
+    }
+
     boolean isUnityLoaded = false;
+
+    public static native String stringFromCpp();
+    private TextView cpptxt;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,6 +35,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        cpptxt = findViewById(R.id.cpptxt);
+        cpptxt.setText(stringFromCpp());
 
         handleIntent(getIntent());
     }
