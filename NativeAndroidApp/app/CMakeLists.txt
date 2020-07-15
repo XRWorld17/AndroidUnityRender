@@ -9,7 +9,7 @@ include_directories(
 )
 
 add_library( # Sets the name of the library.
-        cpplib-lib                     #c/cpp代码将要编译成为so库的名称，java代码加载库文件要用这个名称
+        cppso                          #c/cpp代码将要编译成为so库的名称，java代码加载库文件要用这个名称
         SHARED                          #动态库
         src/main/cpp/cpp_test.cpp       #cpp代码文件路径 可以在下面接着随意添加c、c++文件
         src/main/cpp/c_test.c
@@ -17,10 +17,10 @@ add_library( # Sets the name of the library.
 )
 
 find_library( #调用系统库
-              log-lib                   #打印用
-              log )
+        log-lib
+        log )
 
 target_link_libraries( # Specifies the target library.
-                       cpplib-lib
-                       ${log-lib} )
+        cppso
+        ${log-lib} )
 
