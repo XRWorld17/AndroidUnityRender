@@ -5,7 +5,10 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TextureIDTest.unity
     guid: 6df3185ead36e2a4ebc6ee62885f88f2
+  - enabled: 1
+    path: Assets/Scenes/IntPtrDataTest.unity
+    guid: 4afbd8ba4607a6b43b4e3f897640bd7b
   m_configObjects: {}
