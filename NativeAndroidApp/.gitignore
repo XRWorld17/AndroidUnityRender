@@ -13,4 +13,5 @@
 .externalNativeBuild
 .cxx
 
-*.so
+/app/src/main/cpp/libs
+/unityTransfer/src/main/cpp/libs
