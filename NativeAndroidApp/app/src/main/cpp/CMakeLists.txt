@@ -10,7 +10,6 @@ set(CMAKE_LIBRARY_OUTPUT_DIRECTORY ${PROJECT_SOURCE_DIR}/libs/${ANDROID_ABI})
 
 add_library( cppso
         SHARED
-        c_test.c
         cpp_test.cpp
 )
 
