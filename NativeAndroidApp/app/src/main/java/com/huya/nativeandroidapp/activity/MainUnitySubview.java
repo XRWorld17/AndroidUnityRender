@@ -1,4 +1,4 @@
-package com.huya.nativeandroidapp;
+package com.huya.nativeandroidapp.activity;
 
 import android.os.Bundle;
 import android.widget.FrameLayout;
@@ -8,6 +8,7 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.ViewGroup.LayoutParams;
 
+import com.huya.nativeandroidapp.R;
 import com.unity3d.player.UnityPlayer;
 
 public class MainUnitySubview extends AppCompatActivity {

@@ -1,4 +1,4 @@
-package com.huya.nativeandroidapp;
+package com.huya.nativeandroidapp.activity;
 
 import android.content.Intent;
 import android.os.Bundle;

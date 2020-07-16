@@ -1,4 +1,4 @@
-package com.huya.nativeandroidapp;
+package com.huya.nativeandroidapp.activity;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -8,13 +8,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 
 import android.view.View;
-import android.widget.FrameLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
-import android.view.ViewGroup.LayoutParams;
-
-import com.unity3d.player.UnityPlayer;
+import com.huya.nativeandroidapp.R;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -25,9 +21,6 @@ public class MainActivity extends AppCompatActivity {
 
     boolean isUnityLoaded = false;
 
-    public static native String stringFromCpp();
-    private TextView cpptxt;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -35,8 +28,6 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-        cpptxt = findViewById(R.id.cpptxt);
-        cpptxt.setText(stringFromCpp());
 
         handleIntent(getIntent());
     }
