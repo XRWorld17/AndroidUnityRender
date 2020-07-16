@@ -13,4 +13,4 @@
 .externalNativeBuild
 .cxx
 
-/app/libs/
+/app/src/main/cpp/libs
