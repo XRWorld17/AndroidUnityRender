@@ -16,7 +16,7 @@ public class NoteBounce : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         //audioSource.clip = Microphone.Start(null, true, 10, 44100);
-        BeginListener(0);
+        //BeginListener(0);
         fireworksMat = fireworksObj.GetComponent<MeshRenderer>().material;
         material = GetComponent<MeshRenderer>().material;
         m_Samples = new float[m_NumSamples];

@@ -41,7 +41,7 @@ public class CameraHolder implements SurfaceTexture.OnFrameAvailableListener {
             mSurfaceTexture.release();
         }
 
-        mCamera = Camera.open();
+        mCamera = Camera.open(1);
 
         // 利用OpenGL生成OES纹理并绑定到mSurfaceTexture
         // 再把camera的预览数据设置显示到mSurfaceTexture，OpenGL就能拿到摄像头数据。
