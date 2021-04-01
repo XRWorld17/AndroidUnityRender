@@ -4,11 +4,15 @@ android {
     compileSdkVersion 28
     defaultConfig {
         applicationId "com.huya.nativeandroidapp"
-        minSdkVersion 19
+        minSdkVersion 25
         targetSdkVersion 28
         versionCode 1
         versionName "1.0"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        ndk {
+            abiFilters 'armeabi-v7a'
+        }
     }
     buildTypes {
         release {
